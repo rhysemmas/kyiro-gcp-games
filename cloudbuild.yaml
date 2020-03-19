@@ -1,0 +1,11 @@
+steps:
+- id: minecraft
+  name: "gcr.io/$PROJECT_ID/kustomize"
+  args:
+  - build
+  - minecraft/k8s
+  env:
+  - APPLY=true
+  - CLOUDSDK_COMPUTE_ZONE=europe-west2-c
+  - CLOUDSDK_CONTAINER_CLUSTER=canterlot
+  - GCLOUD_PROJECT=kyiro-gcp-games
