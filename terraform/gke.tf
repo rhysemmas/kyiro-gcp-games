@@ -42,7 +42,7 @@ resource "google_container_node_pool" "canterlot_default_pool" {
   name       = "canterlot-default-pool"
   location   = var.zone
   cluster    = google_container_cluster.canterlot.name
-  node_count = 0
+  node_count = 1
 
   node_config {
     preemptible  = true

@@ -22,15 +22,15 @@ spec:
           protocol: TCP
         volumeMounts:
         - name: config
-          mountPath: /home/minecraft/server.properties
+          mountPath: /opt/minecraft/server.properties
           subPath: server.properties
           readOnly: true
-        - name: whitelist
-          mountPath: /home/minecraft/whitelist.json
+        - name: config
+          mountPath: /opt/minecraft/whitelist.json
           subPath: whitelist.json
           readOnly: true
         - name: world
-          mountPath: /home/minecraft/world
+          mountPath: /opt/minecraft/world
       volumes:
       - name: config
         configMap:
