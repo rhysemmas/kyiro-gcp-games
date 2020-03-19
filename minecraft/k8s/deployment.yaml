@@ -24,7 +24,17 @@ spec:
         - name: config
           mountPath: /home/minecraft/server.properties
           subPath: server.properties
+          readOnly: true
+        - name: whitelist
+          mountPath: /home/minecraft/whitelist.json
+          subPath: whitelist.json
+          readOnly: true
+        - name: world
+          mountPath: /home/minecraft/world
       volumes:
       - name: config
         configMap:
           name: server-config
+      - name: world
+        persistentVolumeClaim:
+          claimName: minecraft-world

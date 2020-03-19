@@ -9,8 +9,10 @@ commonLabels:
 resources:
 - deployment.yaml
 - service.yaml
+- pvc.yaml
 
 configMapGenerator:
 - name: server-config
   files:
   - server.properties
+  - whitelist.json
