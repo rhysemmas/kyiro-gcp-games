@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: quake3-dedicated-server
+  labels:
+    role: server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      role: server
+  template:
+    metadata:
+      labels:
+        role: server
+    spec:
+      containers:
+      - name: server
+        image: eu.gcr.io/kyiro-gcp-games/quake3:latest
+        ports:
+        - containerPort: 27960
+          protocol: UDP
+        volumeMounts:
+        - name: config
+          mountPath: /home/q3server/.q3a/baseq3/server.cfg
+          subPath: server.cfg
+      volumes:
+      - name: config
+        configMap:
+          name: server-config

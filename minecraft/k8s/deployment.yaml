@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: minecraft-server
+  labels:
+    role: server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      role: server
+  template:
+    metadata:
+      labels:
+        role: server
+    spec:
+      containers:
+      - name: server
+        image: eu.gcr.io/kyiro-gcp-games/minecraft:latest
+        ports:
+        - containerPort: 25565
+          protocol: TCP
+        volumeMounts:
+        - name: config
+          mountPath: /home/minecraft/server.properties
+          subPath: server.properties
+      volumes:
+      - name: config
+        configMap:
+          name: server-config
