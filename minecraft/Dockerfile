@@ -8,4 +8,4 @@ COPY eula.txt /opt/minecraft/eula.txt
 WORKDIR /opt/minecraft
 
 ENTRYPOINT ["/usr/bin/java"]
-CMD ["-Xmx1024M", "-Xms1024M", "-jar", "/opt/minecraft/server.jar", "nogui"]
+CMD ["-Xmx4096M", "-Xms4096M", "-jar", "/opt/minecraft/server.jar", "nogui"]
