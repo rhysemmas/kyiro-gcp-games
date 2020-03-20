@@ -1,1 +1,2 @@
 terraform 0.12.23
+kubectl 1.16.8
