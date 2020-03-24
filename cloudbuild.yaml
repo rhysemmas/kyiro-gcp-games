@@ -1,11 +1,16 @@
 steps:
-- id: minecraft
+- id: minecraft-build
+  name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'eu.gcr.io/${PROJECT_ID}/minecraft', 'minecraft/']
+
+- id: minecraft-push
+  name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'eu.gcr.io/${PROJECT_ID}/minecraft']
+
+- id: minecraft-deploy
   name: "gcr.io/$PROJECT_ID/kustomize"
-  args:
-  - build
-  - minecraft/k8s
+  args: ['build', 'minecraft/k8s']
   env:
   - APPLY=true
   - CLOUDSDK_COMPUTE_ZONE=europe-west2-c
   - CLOUDSDK_CONTAINER_CLUSTER=canterlot
-  - GCLOUD_PROJECT=kyiro-gcp-games

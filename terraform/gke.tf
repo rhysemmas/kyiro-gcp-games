@@ -1,5 +1,3 @@
-
-
 resource "google_project_service" "container" {
   project = var.project_name
   service = "container.googleapis.com"

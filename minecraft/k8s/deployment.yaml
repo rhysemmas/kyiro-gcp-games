@@ -20,6 +20,12 @@ spec:
         ports:
         - containerPort: 25565
           protocol: TCP
+        resources:
+          requests:
+            cpu: 1.25
+            memory: 6Gi
+          limits:
+            memory: 6Gi
         volumeMounts:
         - name: config
           mountPath: /opt/minecraft/server.properties
