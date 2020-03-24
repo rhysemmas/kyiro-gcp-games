@@ -23,9 +23,9 @@ spec:
         resources:
           requests:
             cpu: 1.25
-            memory: 6Gi
+            memory: 5Gi
           limits:
-            memory: 6Gi
+            memory: 5Gi
         volumeMounts:
         - name: config
           mountPath: /opt/minecraft/server.properties
