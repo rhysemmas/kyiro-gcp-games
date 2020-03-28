@@ -53,7 +53,24 @@ resource "google_container_node_pool" "canterlot_default_pool" {
     oauth_scopes = [
       "https://www.googleapis.com/auth/logging.write",
       "https://www.googleapis.com/auth/monitoring",
-      "https://www.googleapis.com/auth/devstorage.read_only"
+      "https://www.googleapis.com/auth/devstorage.read_only",
+      "https://www.googleapis.com/auth/ndev.clouddns.readwrite"
     ]
   }
+}
+
+resource "google_compute_firewall" "gke-canterlot-minecraft" {
+  name    = "gke-canterlot-minecraft"
+  network = data.google_compute_network.default.name
+
+  allow {
+    protocol = "tcp"
+    ports    = ["30000"]
+  }
+
+  source_ranges = ["0.0.0.0/0"]
+}
+
+data "google_compute_network" "default" {
+  name = "default"
 }

@@ -2,11 +2,14 @@ apiVersion: v1
 kind: Service
 metadata:
   name: quake3
+  annotations:
+   external-dns.alpha.kubernetes.io/hostname: q3.gcp.kyiro.net
 spec:
   selector:
     role: server
-  type: LoadBalancer
+  type: NodePort
   ports:
   - port: 27960
     targetPort: 27960
+    nodePort: 30100
     protocol: UDP
