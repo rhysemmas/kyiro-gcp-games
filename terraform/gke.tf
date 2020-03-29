@@ -61,7 +61,7 @@ resource "google_container_node_pool" "canterlot_default_pool" {
 
 resource "google_compute_firewall" "gke-canterlot-minecraft" {
   name    = "gke-canterlot-minecraft"
-  network = data.google_compute_network.default.name
+  network = google_container_cluster.canterlot.network
 
   allow {
     protocol = "tcp"
@@ -71,6 +71,6 @@ resource "google_compute_firewall" "gke-canterlot-minecraft" {
   source_ranges = ["0.0.0.0/0"]
 }
 
-data "google_compute_network" "default" {
-  name = "default"
-}
+# data "google_compute_network" "default" {
+#   name = "default"
+# }
