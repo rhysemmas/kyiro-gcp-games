@@ -4,6 +4,7 @@ metadata:
   name: quake3
   annotations:
    external-dns.alpha.kubernetes.io/hostname: q3.gcp.kyiro.net
+   external-dns.alpha.kubernetes.io/ttl: "60"
 spec:
   selector:
     role: server

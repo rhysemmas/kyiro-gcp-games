@@ -4,6 +4,7 @@ metadata:
   name: minecraft
   annotations:
    external-dns.alpha.kubernetes.io/hostname: minecraft.gcp.kyiro.net
+   external-dns.alpha.kubernetes.io/ttl: "60"
 spec:
   selector:
     role: server
