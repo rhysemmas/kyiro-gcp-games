@@ -73,7 +73,3 @@ resource "google_compute_firewall" "gke-canterlot-minecraft" {
 
   source_ranges = ["0.0.0.0/0"]
 }
-
-# data "google_compute_network" "default" {
-#   name = "default"
-# }
