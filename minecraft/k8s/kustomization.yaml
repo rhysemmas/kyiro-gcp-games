@@ -7,9 +7,8 @@ commonLabels:
   app: minecraft
 
 resources:
-- deployment.yaml
+- statefulset.yaml
 - service.yaml
-- pvc.yaml
 
 configMapGenerator:
 - name: server-config
