@@ -23,4 +23,4 @@ spec:
         - --domain-filter=gcp.kyiro.net
         - --provider=google
         - --registry=txt
-        - --txt-owner-id=my-identifier
+        - --txt-owner-id=canterlot-gke
