@@ -36,15 +36,17 @@ resource "google_container_cluster" "canterlot" {
   }
 }
 
-resource "google_container_node_pool" "canterlot_default_pool" {
-  name       = "canterlot-default-pool"
+resource "google_container_node_pool" "canterlot-e2-pool" {
+  provider = google-beta
+
+  name       = "canterlot-e2-pool"
   location   = var.zone
   cluster    = google_container_cluster.canterlot.name
   node_count = 1
 
   node_config {
     preemptible  = true
-    machine_type = "e2-standard-2"
+    machine_type = "e2-standard-4"
 
     disk_size_gb = "20"
     disk_type    = "pd-ssd"
