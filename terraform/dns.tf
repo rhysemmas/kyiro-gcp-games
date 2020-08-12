@@ -10,5 +10,5 @@ resource "google_dns_managed_zone" "kyiro-gcp-zone" {
   dns_name    = "gcp.kyiro.net."
   description = "kyiro.net delegated zone for GCP"
 
-  depends_on = [ google_project_service.dns ]
+  depends_on = [google_project_service.dns]
 }

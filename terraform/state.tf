@@ -1,6 +1,6 @@
 resource "google_storage_bucket" "tf-state" {
-  name          = "kyiro-gcp-tf"
-  location      = "EU"
+  name     = "kyiro-gcp-tf"
+  location = "EU"
 
   versioning {
     enabled = true
@@ -10,7 +10,7 @@ resource "google_storage_bucket" "tf-state" {
 terraform {
   backend "gcs" {
     credentials = "account.json"
-    bucket  = "kyiro-gcp-tf"
-    prefix  = "terraform/state"
+    bucket      = "kyiro-gcp-tf"
+    prefix      = "terraform/state"
   }
 }

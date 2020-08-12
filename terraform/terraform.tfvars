@@ -1,2 +1,2 @@
 project_name = "kyiro-gcp-games"
-zone = "europe-west2-c"
+zone         = "europe-west2-c"

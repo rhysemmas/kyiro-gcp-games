@@ -44,6 +44,11 @@ resource "google_container_node_pool" "canterlot-e2-pool" {
   cluster    = google_container_cluster.canterlot.name
   node_count = 1
 
+  management {
+    auto_repair = true
+    auto_upgrade = true
+  }
+
   node_config {
     preemptible  = true
     machine_type = "e2-standard-4"
